@@ -2,7 +2,7 @@
 <html lang="uz">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0b0b0c">
 <meta name="description" content="Abdurahmon — Telegram bot va veb-sayt dasturchisi. Vizitka-sayt (qora + lime palitra).">
 <title>Abdurahmon — Vizitka (Qora + Lime)</title>
@@ -32,31 +32,49 @@
 *{margin:0;padding:0;box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{
-  min-height:100vh;
-  display:flex;flex-direction:column;align-items:center;
-  background:#dedad2;
+  min-height:100vh;min-height:100dvh;
+  background:#0b0b0c;
   font-family:'IBM Plex Sans',system-ui,-apple-system,sans-serif;
-  padding:32px 16px 48px;
   -webkit-font-smoothing:antialiased;
+  display:flex;justify-content:center;
 }
 a{text-decoration:none}
 img{max-width:100%}
 
-/* language toggle */
+/* full-bleed card — fills the phone screen, no frame, no gap.
+   On wide screens it caps at 430px and centers, still edge-to-edge top/bottom. */
+.dv-card{
+  width:100%;max-width:430px;
+  min-height:100vh;min-height:100dvh;
+  border-radius:0 !important;
+  box-shadow:none !important;
+  display:flex;flex-direction:column;
+}
+/* last block (dark footer with the CTA) fills any leftover height on tall
+   screens so there is never a strip of body colour under the card */
+.dv-card > div:last-child{flex:1 0 auto}
+
+/* language toggle — lives inside the portrait, top-right, understated.
+   Glass pill; active side picks up the card accent. */
 .langbar{
-  display:flex;gap:6px;margin-bottom:20px;
+  position:absolute;top:16px;right:16px;z-index:5;
+  top:calc(16px + env(safe-area-inset-top));
+  display:flex;align-items:center;gap:2px;
+  padding:3px;border-radius:100px;
+  background:rgba(20,20,22,.34);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,.14);
 }
 .langbar button{
-  font:600 11px/1 'JetBrains Mono',ui-monospace,monospace;
-  letter-spacing:.08em;
-  padding:8px 14px;border-radius:8px;cursor:pointer;
-  border:1px solid rgba(0,0,0,.22);background:transparent;color:#1a1a1a;
+  font:600 10px/1 'JetBrains Mono',ui-monospace,monospace;
+  letter-spacing:.06em;
+  padding:5px 9px;border-radius:100px;cursor:pointer;
+  border:0;background:transparent;color:rgba(255,255,255,.72);
   transition:background .15s ease,color .15s ease;
 }
-.langbar button.is-active{background:#1a1a1a;color:#fff;border-color:#1a1a1a}
-
-/* card shell */
-.dv-card{width:390px;max-width:100%;border-radius:26px;overflow:hidden;box-shadow:0 18px 44px rgba(0,0,0,.16)}
+.langbar button:hover{color:#fff}
+.langbar button.is-active{background:#c8ff5a;color:#0b0b0c}
+.langbar-sep{width:1px;height:11px;background:rgba(255,255,255,.16)}
 
 /* language visibility — UZ shown by default */
 .lang{display:none}
@@ -70,23 +88,13 @@ html[data-lang="ru"] .lang-ru{display:inline}
 .c3-hv3:hover{background:#1b1b1e}
 .c3-hv4:hover{background:#1b1b1e}
 .c3-hv5:hover{background:#c8ff5a;color:#0b0b0c}
-
-@media (max-width:430px){
-  body{padding:20px 10px 36px}
-  .dv-card{border-radius:22px}
-}
 </style>
 </head>
 <body>
 
-<div class="langbar" role="group" aria-label="Til / Язык">
-  <button type="button" data-lang="uz" class="is-active">UZ</button>
-  <button type="button" data-lang="ru">RU</button>
-</div>
-
 <div class="dv-card" style="background:#0b0b0c;color:#f2f1ee;font-family:'Space Grotesk',sans-serif">
   <div style="position:relative;height:430px;overflow:hidden">
-    <img src="javohir.jpg" alt="Abdurahmon" style="width:100%;height:100%;object-fit:cover;object-position:50% 22%;display:block">
+    <img src="javohir.jpg" alt="Abdurahmon" style="width:100%;height:100%;object-fit:cover;object-position:50% 22%;display:block"><div class="langbar" role="group" aria-label="Til / Язык"><button type="button" data-lang="uz" class="is-active">UZ</button><span class="langbar-sep"></span><button type="button" data-lang="ru">RU</button></div>
     <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(11,11,12,.28) 0%,rgba(11,11,12,0) 32%,rgba(11,11,12,.72) 74%,#0b0b0c 100%)"></div>
     <div style="position:absolute;top:20px;left:22px;display:flex;align-items:center;gap:7px;padding:6px 11px;border-radius:100px;background:rgba(11,11,12,.55);backdrop-filter:blur(6px);font:500 10px/1 'JetBrains Mono',monospace;letter-spacing:.11em;color:#c8ff5a">
       <span style="width:5px;height:5px;border-radius:50%;background:#c8ff5a;display:block"></span>
@@ -157,12 +165,12 @@ html[data-lang="ru"] .lang-ru{display:inline}
 (function(){
   var root=document.documentElement;
   var btns=document.querySelectorAll('.langbar button');
+  var KEY='vizitka-lang:'+location.pathname;
   function set(lang){
     root.setAttribute('data-lang',lang);
     btns.forEach(function(b){b.classList.toggle('is-active',b.getAttribute('data-lang')===lang);});
     try{localStorage.setItem(KEY,lang);}catch(e){}
   }
-  var KEY='vizitka-lang:'+location.pathname;
   btns.forEach(function(b){
     b.addEventListener('click',function(){set(b.getAttribute('data-lang'));});
   });
