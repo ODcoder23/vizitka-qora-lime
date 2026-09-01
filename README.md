@@ -20,7 +20,7 @@ O'ng yuqoridagi `UZ` / `RU` tugmasi orqali til almashadi. Tanlov brauzerda saqla
 
 ```
 index.html          — sahifa (barcha CSS ichida)
-javohir.jpg         — portret rasm
+abdurahmon.jpg      — portret rasm
 fonts/              — IBM Plex Sans, JetBrains Mono, Space Grotesk (woff2 subset)
 ```
 
