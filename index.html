@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0b0b0c">
+<meta name="description" content="Abdurahmon — Telegram bot va veb-sayt dasturchisi. Vizitka-sayt (qora + lime palitra).">
+<title>Abdurahmon — Vizitka (Qora + Lime)</title>
+<link rel="icon" href="javohir.jpg">
+<style>
+@font-face{font-family:'IBM Plex Sans';font-style:normal;font-weight:400;font-display:swap;src:url("fonts/ibmplexsans-latin.woff2") format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:'IBM Plex Sans';font-style:normal;font-weight:400;font-display:swap;src:url("fonts/ibmplexsans-cyrillic.woff2") format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;}
+@font-face{font-family:'IBM Plex Sans';font-style:normal;font-weight:500;font-display:swap;src:url("fonts/ibmplexsans-latin.woff2") format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:'IBM Plex Sans';font-style:normal;font-weight:500;font-display:swap;src:url("fonts/ibmplexsans-cyrillic.woff2") format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;}
+@font-face{font-family:'IBM Plex Sans';font-style:normal;font-weight:600;font-display:swap;src:url("fonts/ibmplexsans-latin.woff2") format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:'IBM Plex Sans';font-style:normal;font-weight:600;font-display:swap;src:url("fonts/ibmplexsans-cyrillic.woff2") format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:400;font-display:swap;src:url("fonts/jetbrainsmono-latin.woff2") format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:400;font-display:swap;src:url("fonts/jetbrainsmono-cyrillic.woff2") format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:500;font-display:swap;src:url("fonts/jetbrainsmono-latin.woff2") format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:500;font-display:swap;src:url("fonts/jetbrainsmono-cyrillic.woff2") format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:700;font-display:swap;src:url("fonts/jetbrainsmono-latin.woff2") format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:700;font-display:swap;src:url("fonts/jetbrainsmono-cyrillic.woff2") format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;}
+@font-face{font-family:'Space Grotesk';font-style:normal;font-weight:400;font-display:swap;src:url("fonts/spacegrotesk-latin.woff2") format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:'Space Grotesk';font-style:normal;font-weight:400;font-display:swap;src:url("fonts/spacegrotesk-latinext.woff2") format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:'Space Grotesk';font-style:normal;font-weight:500;font-display:swap;src:url("fonts/spacegrotesk-latin.woff2") format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:'Space Grotesk';font-style:normal;font-weight:500;font-display:swap;src:url("fonts/spacegrotesk-latinext.woff2") format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:'Space Grotesk';font-style:normal;font-weight:600;font-display:swap;src:url("fonts/spacegrotesk-latin.woff2") format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:'Space Grotesk';font-style:normal;font-weight:600;font-display:swap;src:url("fonts/spacegrotesk-latinext.woff2") format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:'Space Grotesk';font-style:normal;font-weight:700;font-display:swap;src:url("fonts/spacegrotesk-latin.woff2") format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:'Space Grotesk';font-style:normal;font-weight:700;font-display:swap;src:url("fonts/spacegrotesk-latinext.woff2") format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  min-height:100vh;
+  display:flex;flex-direction:column;align-items:center;
+  background:#dedad2;
+  font-family:'IBM Plex Sans',system-ui,-apple-system,sans-serif;
+  padding:32px 16px 48px;
+  -webkit-font-smoothing:antialiased;
+}
+a{text-decoration:none}
+img{max-width:100%}
+
+/* language toggle */
+.langbar{
+  display:flex;gap:6px;margin-bottom:20px;
+}
+.langbar button{
+  font:600 11px/1 'JetBrains Mono',ui-monospace,monospace;
+  letter-spacing:.08em;
+  padding:8px 14px;border-radius:8px;cursor:pointer;
+  border:1px solid rgba(0,0,0,.22);background:transparent;color:#1a1a1a;
+  transition:background .15s ease,color .15s ease;
+}
+.langbar button.is-active{background:#1a1a1a;color:#fff;border-color:#1a1a1a}
+
+/* card shell */
+.dv-card{width:390px;max-width:100%;border-radius:26px;overflow:hidden;box-shadow:0 18px 44px rgba(0,0,0,.16)}
+
+/* language visibility — UZ shown by default */
+.lang{display:none}
+.lang-uz{display:inline}
+html[data-lang="ru"] .lang-uz{display:none}
+html[data-lang="ru"] .lang-ru{display:inline}
+
+/* hover states migrated from Claude Design style-hover="" */
+.c3-hv1:hover{background:#d6ff7d}
+.c3-hv2:hover{background:#222226}
+.c3-hv3:hover{background:#1b1b1e}
+.c3-hv4:hover{background:#1b1b1e}
+.c3-hv5:hover{background:#c8ff5a;color:#0b0b0c}
+
+@media (max-width:430px){
+  body{padding:20px 10px 36px}
+  .dv-card{border-radius:22px}
+}
+</style>
+</head>
+<body>
+
+<div class="langbar" role="group" aria-label="Til / Язык">
+  <button type="button" data-lang="uz" class="is-active">UZ</button>
+  <button type="button" data-lang="ru">RU</button>
+</div>
+
+<div class="dv-card" style="background:#0b0b0c;color:#f2f1ee;font-family:'Space Grotesk',sans-serif">
+  <div style="position:relative;height:430px;overflow:hidden">
+    <img src="javohir.jpg" alt="Abdurahmon" style="width:100%;height:100%;object-fit:cover;object-position:50% 22%;display:block">
+    <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(11,11,12,.28) 0%,rgba(11,11,12,0) 32%,rgba(11,11,12,.72) 74%,#0b0b0c 100%)"></div>
+    <div style="position:absolute;top:20px;left:22px;display:flex;align-items:center;gap:7px;padding:6px 11px;border-radius:100px;background:rgba(11,11,12,.55);backdrop-filter:blur(6px);font:500 10px/1 'JetBrains Mono',monospace;letter-spacing:.11em;color:#c8ff5a">
+      <span style="width:5px;height:5px;border-radius:50%;background:#c8ff5a;display:block"></span>
+      <span class="lang lang-uz">LOYIHALARGA OCHIQ</span><span class="lang lang-ru">ОТКРЫТ ДЛЯ ПРОЕКТОВ</span>
+    </div>
+    <div style="position:absolute;left:22px;right:22px;bottom:20px">
+      <div style="font:500 10px/1 'JetBrains Mono',monospace;letter-spacing:.13em;color:#9a9a94">FREELANCE FULL-STACK · O'ZBEKISTON</div>
+      <h1 style="margin:12px 0 0;font:600 44px/.96 'Space Grotesk',sans-serif;letter-spacing:-.035em">Abdurahmon</h1>
+      <div style="margin-top:8px;font:500 15px/1.35 'IBM Plex Sans',sans-serif;color:#b9b8b2">
+        <span class="lang lang-uz">Telegram bot va veb-sayt dasturchisi</span><span class="lang lang-ru">Разработчик Telegram-ботов и веб-сайтов</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="padding:6px 22px 0">
+    <p style="margin:0;font:400 15px/1.6 'IBM Plex Sans',sans-serif;color:#c9c8c3;text-wrap:pretty">
+      <span class="lang lang-uz">Telegram botlar, veb-saytlar, vizitka-saytlar va startup loyihalarini noldan production darajasiga olib chiqaman. Ishni oxirigacha yetkazaman — topshirilgandan keyin ham qo'llab-quvvatlayman.</span><span class="lang lang-ru">Telegram-боты, веб-сайты, сайты-визитки и стартап-проекты — от нуля до production. Довожу работу до конца и поддерживаю проект после сдачи.</span>
+    </p>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:22px 22px 18px">
+    <a href="tel:+998992523224" style="display:flex;flex-direction:column;justify-content:center;gap:3px;min-height:64px;padding:12px 15px;border-radius:15px;background:#c8ff5a;color:#0b0b0c" class="c3-hv1">
+      <span style="font:500 9.5px/1 'JetBrains Mono',monospace;letter-spacing:.1em;opacity:.6">TEL</span>
+      <span style="font:600 15px/1.2 'Space Grotesk',sans-serif"><span class="lang lang-uz">Qo'ng'iroq qilish</span><span class="lang lang-ru">Позвонить</span></span>
+    </a>
+    <a href="https://t.me/odcoder" style="display:flex;flex-direction:column;justify-content:center;gap:3px;min-height:64px;padding:12px 15px;border-radius:15px;background:#17171a;color:#f2f1ee;border:1px solid rgba(255,255,255,.14)" class="c3-hv2">
+      <span style="font:500 9.5px/1 'JetBrains Mono',monospace;letter-spacing:.1em;color:#c8ff5a">TELEGRAM</span>
+      <span style="font:600 15px/1.2 'Space Grotesk',sans-serif">@odcoder</span>
+    </a>
+  </div>
+
+  <div style="padding:8px 22px 24px">
+    <div style="font:500 10px/1 'JetBrains Mono',monospace;letter-spacing:.13em;color:#6f6f6a;padding-bottom:12px"><span class="lang lang-uz">XIZMATLAR</span><span class="lang lang-ru">УСЛУГИ</span></div>
+    <div style="display:flex;flex-direction:column">
+      <div style="display:flex;gap:14px;padding:15px 0;border-top:1px solid rgba(255,255,255,.1)">
+        <span style="font:500 11px/1.5 'JetBrains Mono',monospace;color:#c8ff5a">01</span>
+        <div><div style="font:600 16px/1.2 'Space Grotesk',sans-serif">Telegram bot</div><div style="margin-top:4px;font:400 13px/1.45 'IBM Plex Sans',sans-serif;color:#8f8f8a"><span class="lang lang-uz">Kino-bot, to'lov tizimi, admin panel</span><span class="lang lang-ru">Кино-бот, оплата, админ-панель</span></div></div>
+      </div>
+      <div style="display:flex;gap:14px;padding:15px 0;border-top:1px solid rgba(255,255,255,.1)">
+        <span style="font:500 11px/1.5 'JetBrains Mono',monospace;color:#c8ff5a">02</span>
+        <div><div style="font:600 16px/1.2 'Space Grotesk',sans-serif"><span class="lang lang-uz">Veb-sayt</span><span class="lang lang-ru">Веб-сайт</span></div><div style="margin-top:4px;font:400 13px/1.45 'IBM Plex Sans',sans-serif;color:#8f8f8a"><span class="lang lang-uz">Korporativ va katalog saytlar</span><span class="lang lang-ru">Корпоративные и каталог-сайты</span></div></div>
+      </div>
+      <div style="display:flex;gap:14px;padding:15px 0;border-top:1px solid rgba(255,255,255,.1)">
+        <span style="font:500 11px/1.5 'JetBrains Mono',monospace;color:#c8ff5a">03</span>
+        <div><div style="font:600 16px/1.2 'Space Grotesk',sans-serif"><span class="lang lang-uz">Vizitka-sayt</span><span class="lang lang-ru">Сайт-визитка</span></div><div style="margin-top:4px;font:400 13px/1.45 'IBM Plex Sans',sans-serif;color:#8f8f8a"><span class="lang lang-uz">Bir sahifali, tez yuklanadigan</span><span class="lang lang-ru">Одна страница, быстрая загрузка</span></div></div>
+      </div>
+      <div style="display:flex;gap:14px;padding:15px 0;border-top:1px solid rgba(255,255,255,.1);border-bottom:1px solid rgba(255,255,255,.1)">
+        <span style="font:500 11px/1.5 'JetBrains Mono',monospace;color:#c8ff5a">04</span>
+        <div><div style="font:600 16px/1.2 'Space Grotesk',sans-serif"><span class="lang lang-uz">Mobil mini-app</span><span class="lang lang-ru">Мобильный mini-app</span></div><div style="margin-top:4px;font:400 13px/1.45 'IBM Plex Sans',sans-serif;color:#8f8f8a">Telegram Mini App</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div style="padding:0 22px 24px;display:flex;flex-direction:column;gap:8px">
+    <a href="tel:+998992523224" style="display:flex;justify-content:space-between;align-items:center;min-height:54px;padding:0 16px;border-radius:13px;background:#131315;font:500 15px/1 'IBM Plex Sans',sans-serif;color:#f2f1ee" class="c3-hv3"><span>+998 99 252 32 24</span><span style="font:500 10px 'JetBrains Mono',monospace;letter-spacing:.1em;color:#6f6f6a">TEL</span></a>
+    <a href="mailto:salom@odcoder.uz" style="display:flex;justify-content:space-between;align-items:center;min-height:54px;padding:0 16px;border-radius:13px;background:#131315;font:500 15px/1 'IBM Plex Sans',sans-serif;color:#f2f1ee" class="c3-hv4"><span>salom@odcoder.uz</span><span style="font:500 10px 'JetBrains Mono',monospace;letter-spacing:.1em;color:#6f6f6a">EMAIL</span></a>
+  </div>
+
+  <div style="padding:22px 22px 30px;border-top:1px solid rgba(255,255,255,.1);background:#08080a">
+    <a href="https://odcoder.uz" style="display:flex;align-items:center;justify-content:center;gap:10px;min-height:58px;border-radius:15px;border:1px solid #c8ff5a;color:#c8ff5a;font:600 16px/1 'Space Grotesk',sans-serif" class="c3-hv5">
+      <span class="lang lang-uz">Asosiy veb-saytga o'tish</span><span class="lang lang-ru">Перейти на основной сайт</span>
+      <span style="font-size:18px">→</span>
+    </a>
+  </div>
+</div>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  var btns=document.querySelectorAll('.langbar button');
+  function set(lang){
+    root.setAttribute('data-lang',lang);
+    btns.forEach(function(b){b.classList.toggle('is-active',b.getAttribute('data-lang')===lang);});
+    try{localStorage.setItem(KEY,lang);}catch(e){}
+  }
+  var KEY='vizitka-lang:'+location.pathname;
+  btns.forEach(function(b){
+    b.addEventListener('click',function(){set(b.getAttribute('data-lang'));});
+  });
+  var saved;
+  try{saved=localStorage.getItem(KEY);}catch(e){}
+  set(saved==='ru'?'ru':'uz');
+})();
+</script>
+
+</body>
+</html>
